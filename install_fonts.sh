@@ -1,5 +1,6 @@
 #!/bin/bash
 
+DIRINIT=$(pwd);
 # Function to download and install fonts
 install_font() {
   local font_name=$1
@@ -8,8 +9,12 @@ install_font() {
 
   echo "Installing $font_name..."
   sudo mkdir -p "$install_dir"
-  sudo wget -q --show-progress -O "$install_dir/$font_name.ttf" "$font_url"
-  sudo chmod 644 "$install_dir/$font_name.ttf"
+  sudo wget -q --show-progress -O "$install_dir/$font_name.zip" "$font_url"
+  cd "$install_dir/"
+  sudo unzip *.zip
+  sudo rm *Windows*.ttf
+  sudo rm *.zip
+  sudo chmod 644 *.ttf
   sudo fc-cache -f -v
   echo "Done installing $font_name."
   echo

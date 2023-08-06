@@ -8,10 +8,11 @@ elif [[ -z "${XDG_CONFIG_HOME// }" ]]; then
 fi
 
 
-
+[[ ! -f "${XDG_CONFIG_HOME}/config-repo/environment.sh" ]] || source "${XDG_CONFIG_HOME}/config-repo/environment.sh"
 export PATH=$HOME/bin:/usr/local/bin:/var/lib/flatpak/exports/bin/:$PATH
 export PATH="$HOME/.local/bin:$PATH"
 
 eval $(thefuck --alias)
 
 [[ ! -f "${XDG_CONFIG_HOME}/config-repo/ohmyzsh.sh" ]] || source "${XDG_CONFIG_HOME}/config-repo/ohmyzsh.sh"
+[[ ! -f "${XDG_CONFIG_HOME}/config-repo/aliases/my_aliases.sh" ]] || source "${XDG_CONFIG_HOME}/config-repo/aliases/my_aliases.sh"
