@@ -50,3 +50,4 @@ else
     fi
 fi
 
+alias arbi_logs=tail -f "api/storage/logs/laravel_debug-*.log" "portal/storage/logs/laravel-*.log" "admin/storage/logs/laravel-*.log" | batcat  --style=grid --paging=never -l log
