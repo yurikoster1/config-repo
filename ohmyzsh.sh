@@ -111,6 +111,9 @@ if [ -d "$ZSH_CUSTOM/plugins/zsh-better-npm-completion" ]; then
     plugins+=(zsh-better-npm-completion)
 fi
 
+
+
+
 #httpie
 source $ZSH/oh-my-zsh.sh
 

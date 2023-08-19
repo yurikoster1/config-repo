@@ -55,3 +55,4 @@ if command -v docker &>/dev/null; then
 fi
 
 [[ ! -f "$HOME/Documents/Projects/arbi/docker-compose.yml" ]] || alias arbi_logs=tail -f "$HOME/Documents/Projects/arbi/*/storage/logs/laravel_debug-*.log" | batcat  --style=grid --paging=never -l log
+[[ ! -f "$HOME/.zshrc" ]] || alias zshreload="source $HOME/.zshrc"
