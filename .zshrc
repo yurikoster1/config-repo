@@ -16,4 +16,5 @@ eval $(thefuck --alias)
 
 [[ ! -f "${XDG_CONFIG_HOME}/config-repo/ohmyzsh.sh" ]] || source "${XDG_CONFIG_HOME}/config-repo/ohmyzsh.sh"
 [[ ! -f "${XDG_CONFIG_HOME}/config-repo/aliases/my_aliases.sh" ]] || source "${XDG_CONFIG_HOME}/config-repo/aliases/my_aliases.sh"
-alias dockerkillall= docker kill $(docker ps -q) 
+
+[[ ! -f "${XDG_CONFIG_HOME}/config-repo/zoxide.sh" ]] || source "${XDG_CONFIG_HOME}/config-repo/zoxide.sh"

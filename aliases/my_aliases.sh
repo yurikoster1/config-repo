@@ -50,4 +50,8 @@ else
     fi
 fi
 
-alias arbi_logs=tail -f "api/storage/logs/laravel_debug-*.log" "portal/storage/logs/laravel-*.log" "admin/storage/logs/laravel-*.log" | batcat  --style=grid --paging=never -l log
+if command -v docker &>/dev/null; then
+  alias dockerkillall= docker kill $(docker ps -q)
+fi
+
+[[ ! -f "$HOME/Documents/Projects/arbi/docker-compose.yml" ]] || alias arbi_logs=tail -f "$HOME/Documents/Projects/arbi/*/storage/logs/laravel_debug-*.log" | batcat  --style=grid --paging=never -l log
