@@ -1,0 +1,6 @@
+[submodule "alacritty/themes"]
+	path = alacritty/themes
+	url = https://github.com/alacritty/alacritty-theme
+[submodule "oh-my-zsh/custom/themes/powerlevel10k"]
+	path = oh-my-zsh/custom/themes/powerlevel10k
+	url = https://github.com/romkatv/powerlevel10k.git
