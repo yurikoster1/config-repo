@@ -18,6 +18,8 @@ fi
 [[ ! -f "${XDG_CONFIG_HOME}/config-repo/ohmyzsh.sh" ]] || source "${XDG_CONFIG_HOME}/config-repo/ohmyzsh.sh"
 [[ ! -f "${XDG_CONFIG_HOME}/config-repo/aliases/my_aliases.sh" ]] || source "${XDG_CONFIG_HOME}/config-repo/aliases/my_aliases.sh"
 
-[[ ! -f "${XDG_CONFIG_HOME}/config-repo/zoxide.sh" ]] || source "${XDG_CONFIG_HOME}/config-repo/zoxide.sh"
-
+if command -v zoxide &>/dev/null; then
+	[[ ! -f "${XDG_CONFIG_HOME}/config-repo/zoxide.sh" ]] || source "${XDG_CONFIG_HOME}/config-repo/zoxide.sh"
+fi
 [[ ! -f "${XDG_CONFIG_HOME}/config-repo/functions.sh" ]] || source "${XDG_CONFIG_HOME}/config-repo/functions.sh"
+ GITSTATUS_LOG_LEVEL=DEBUG

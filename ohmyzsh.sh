@@ -78,8 +78,10 @@ HIST_STAMPS="[%Y-%m-%d %T] "
 # Example format: plugins=(git-flow-completion rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 #plugins=(git-flow-completion git laravel docker docker-compose git-flow gitignore history minikube safe-paste thefuck alias-finder history colorize zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zsh-autocomplete autojump)
-plugins=(git colorize laravel docker docker-compose git-flow gitignore github history minikube safe-paste thefuck alias-finder autojump )
-
+plugins=(git colorize laravel docker docker-compose git-flow gitignore github history minikube safe-paste thefuck alias-finder )
+ if command -v autojump &>/dev/null; then
+  plugins+=(autojump )
+fi
 # Check if 'git-flow-completion' is installed and load the plugin
 if [ -d "$ZSH_CUSTOM/plugins/git-flow-completion" ]; then
     plugins+=(git-flow-completion )
