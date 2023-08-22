@@ -4,3 +4,6 @@
 [submodule "oh-my-zsh/custom/themes/powerlevel10k"]
 	path = oh-my-zsh/custom/themes/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
+[submodule "tmux/oh-my-tmux"]
+	path = tmux/oh-my-tmux
+	url = https://github.com/gpakosz/.tmux.git

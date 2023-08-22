@@ -8,20 +8,8 @@ if [ -d "/opt/" ]; then
     export PATH="/opt/:$PATH"
 fi
 
-if [ -d "$HOME/.local/bin" ]; then
-    export PATH="$HOME/.local/bin:$PATH"
-fi
-
 if [ -d "$HOME/.cargo/bin" ]; then
     export PATH="$HOME/.cargo/bin:$PATH"
-fi
-
-if [ -d "$HOME/bin" ]; then
-    export PATH="$HOME/bin:$PATH"
-fi
-
-if [ -d "/usr/local/bin" ]; then
-    export PATH="/usr/local/bin:$PATH"
 fi
 
 # Check if nvm is installed and load it if found
@@ -29,4 +17,22 @@ if [ -f "$HOME/.nvm/nvm.sh" ]; then
 	export NVM_DIR="$HOME/.nvm"
 	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
+
+
+# Check and add directories to PATH if they exist and are not already in PATH
+if [ -d "$HOME/bin" ] && ! case ":$PATH:" in *":$HOME/bin:"*) true;; *) false;; esac; then
+    export PATH="$HOME/bin:$PATH"
+fi
+
+if [ -d "/usr/local/bin" ] && ! case ":$PATH:" in *":/usr/local/bin:"*) true;; *) false;; esac; then
+    export PATH="/usr/local/bin:$PATH"
+fi
+
+if [ -d "/var/lib/flatpak/exports/bin/" ] && ! case ":$PATH:" in *":/var/lib/flatpak/exports/bin/:"*) true;; *) false;; esac; then
+    export PATH="/var/lib/flatpak/exports/bin/:$PATH"
+fi
+
+if [ -d "$HOME/.local/bin" ] && ! case ":$PATH:" in *":$HOME/.local/bin:"*) true;; *) false;; esac; then
+    export PATH="$HOME/.local/bin:$PATH"
 fi
