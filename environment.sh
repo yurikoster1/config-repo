@@ -36,3 +36,10 @@ fi
 if [ -d "$HOME/.local/bin" ] && ! case ":$PATH:" in *":$HOME/.local/bin:"*) true;; *) false;; esac; then
     export PATH="$HOME/.local/bin:$PATH"
 fi
+
+
+if [ -d "/usr/local/cuda-12.2/bin" ] && ! case ":$PATH:" in *":/usr/local/cuda-12.2/bin:"*) true;; *) false;; esac; then
+	export PATH=/usr/local/cuda-12.2/bin${PATH:+:${PATH}}
+	export LD_LIBRARY_PATH=/usr/local/cuda-12.2/lib64\
+                         ${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+fi

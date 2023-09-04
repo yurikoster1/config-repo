@@ -38,7 +38,7 @@ tmux_conf_new_pane_retain_current_path=true
 #   - true
 #   - false (default)
 #   - disabled (do not modify split-window bindings)
-tmux_conf_new_pane_reconnect_ssh=false
+tmux_conf_new_pane_reconnect_ssh=true
 
 
 # -- display -------------------------------------------------------------------
@@ -252,8 +252,8 @@ tmux_conf_theme_right_separator_sub="|"
 #     - #{username}
 #     - #{username_ssh}
 tmux_conf_theme_status_left=" ❐ #S | ↑#{?uptime_y, #{uptime_y}y,}#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} "
-tmux_conf_theme_status_right=" #{prefix}#{mouse}#{pairing}#{synchronized}#{?battery_status,#{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b | #{username}#{root} | #{hostname} "
-
+#tmux_conf_theme_status_right=" #{df_avail},  #{loadavg} #{prefix}#{mouse}#{pairing}#{synchronized}, #(curl -m 1 wttr.in?format=3 2>/dev/null; sleep 900) , #{?battery_status,#{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b | #{username}#{root} | #{hostname} "
+tmux_conf_theme_status_right=" #{df_avail},  #{loadavg}, #{wifi_ssid} #{wifi_icon} ,  #{prefix}#{mouse}#{pairing}#{synchronized}, #{?battery_status,#{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},}, #{forecast} , %R , %d %b | #{username}#{root} | #{hostname} "
 # status left style
 tmux_conf_theme_status_left_fg="$tmux_conf_theme_colour_6,$tmux_conf_theme_colour_7,$tmux_conf_theme_colour_8"
 tmux_conf_theme_status_left_bg="$tmux_conf_theme_colour_9,$tmux_conf_theme_colour_10,$tmux_conf_theme_colour_11"
@@ -420,8 +420,32 @@ set -g @plugin 'tmux-plugins/tmux-battery'
 set -g @continuum-restore 'on'
 set -g @plugin 'tmux-plugins/tmux-open'
 set -g @plugin 'sainnhe/tmux-fzf'
+set -g @plugin 'ofirgall/tmux-browser'
+set -g @plugin 'b0o/tmux-autoreload'
+set -g @plugin 'tassaron/tmux-df'
+set -g @plugin 'aaronpowell/tmux-weather'
+set -g @plugin 'seebi/tmux-colors-solarized'
+set -g @plugin 'gmoe/tmux-wifi'
 
 # -- custom variables ----------------------------------------------------------
+
+# -- vars for set -g @plugin 'aaronpowell/tmux-weather'
+set -g @forecast-cache-duration 900 # 15 minutes
+set -g @forecast-location Sao_Paulo
+#---- end set -g @plugin 'aaronpowell/tmux-weather'
+
+#--- vars for set -g @plugin 'seebi/tmux-colors-solarized'
+set -g @colors-solarized 'dark'
+#--- end set -g @plugin 'seebi/tmux-colors-solarized'
+
+#--- vars for set -g @plugin 'gmoe/tmux-wifi'
+set -g @tmux_wifi_icon_5 "☰"
+set -g @tmux_wifi_icon_4 "☱"
+set -g @tmux_wifi_icon_3 "⚌"
+set -g @tmux_wifi_icon_2 "⚍"
+set -g @tmux_wifi_icon_1 "⚊"
+set -g @tmux_wifi_icon_off "⚋"
+#-- end set -g @plugin 'gmoe/tmux-wifi'
 
 # to define a custom #{foo} variable, define a POSIX shell function between the
 # '# EOF' and the '# "$@"' lines. Please note that the opening brace { character

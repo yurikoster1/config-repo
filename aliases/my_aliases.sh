@@ -56,3 +56,8 @@ fi
 
 [[ ! -f "$HOME/Documents/Projects/arbi/docker-compose.yml" ]] || alias arbi_logs=tail -f "$HOME/Documents/Projects/arbi/*/storage/logs/laravel_debug-*.log" | batcat  --style=grid --paging=never -l log
 [[ ! -f "$HOME/.zshrc" ]] || alias zshreload="source $HOME/.zshrc"
+
+if command -v yq &>/dev/null; then
+	alias docker-ports='for service in $(yq eval ".services | keys | .[]" docker-compose.yml); do ports=$(yq eval ".services[\"$service\"].ports[]?" docker-compose.yml); echo "$service:"; for port in $ports; do echo "  $port" | sed ":a;N;\$!ba;s/\n/\n  /g"; done; done'
+fi
+
