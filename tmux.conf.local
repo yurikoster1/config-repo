@@ -447,6 +447,10 @@ set -g @tmux_wifi_icon_1 "⚊"
 set -g @tmux_wifi_icon_off "⚋"
 #-- end set -g @plugin 'gmoe/tmux-wifi'
 
+#--- vars for set -g @plugin 'ofirgall/tmux-browser'
+set -g @new_browser_window 'google-chrome --new-window --profile-directory=Default'
+#-- end set -g @plugin 'ofirgall/tmux-browser'
+
 # to define a custom #{foo} variable, define a POSIX shell function between the
 # '# EOF' and the '# "$@"' lines. Please note that the opening brace { character
 # must be on the same line as the function name otherwise the parse won't detect
